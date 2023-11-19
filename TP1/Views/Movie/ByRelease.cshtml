@@ -1,0 +1,28 @@
+﻿@model IEnumerable<TP1.Models.Movie>
+
+<h2>Movies released in @ViewBag.Month/@ViewBag.Year</h2>
+
+@if (Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Release Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.ReleaseDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No movies found for the specified month and year.</p>
+}
